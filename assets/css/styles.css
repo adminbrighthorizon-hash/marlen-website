@@ -1,0 +1,237 @@
+/* ===========================
+   Marlene & Co. Interiors
+   Custom Styles (CDN-compatible)
+   =========================== */
+
+:root {
+  --color-cream: #FAF5EF;
+  --color-linen: #F0E6D4;
+  --color-sage: #A8B5A0;
+  --color-olive: #6B7F5E;
+  --color-walnut: #5C4033;
+  --color-bronze: #8B6914;
+  --color-dark-olive: #4a5840;
+  --color-dark-walnut: #3a2a1e;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--color-cream);
+  color: var(--color-walnut);
+  transition: background 0.3s, color 0.3s;
+}
+
+html.dark body {
+  background: #2a1f16;
+  color: var(--color-linen);
+}
+
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Parallax layer */
+.parallax__layer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  will-change: transform;
+}
+
+/* Back to top button */
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--color-olive);
+  color: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, background 0.2s;
+  z-index: 50;
+  border: none;
+  cursor: pointer;
+}
+#backToTop:hover {
+  background: var(--color-dark-olive);
+}
+#backToTop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Primary button */
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.8rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+  background: var(--color-olive);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+.button:hover {
+  background: var(--color-dark-olive);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  color: #fff;
+}
+
+/* Quote / CTA button — eye-catching gradient */
+.button-quote {
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: background 0.25s, box-shadow 0.25s, transform 0.15s;
+  box-shadow: 0 3px 10px rgba(92,64,51,0.25);
+  background: linear-gradient(135deg, var(--color-olive) 0%, var(--color-bronze) 100%);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+.button-quote:hover {
+  background: linear-gradient(135deg, var(--color-dark-olive) 0%, var(--color-dark-walnut) 100%);
+  box-shadow: 0 6px 20px rgba(92,64,51,0.35);
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+/* Outline button */
+.button-outline {
+  display: inline-block;
+  padding: 0.6rem 1.8rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  background: transparent;
+  color: var(--color-olive);
+  border: 2px solid var(--color-olive);
+  text-decoration: none;
+  cursor: pointer;
+}
+.button-outline:hover {
+  background: var(--color-dark-olive);
+  border-color: var(--color-dark-olive);
+  color: #fff;
+}
+
+/* Small button (service cards) */
+.button-sm {
+  display: inline-block;
+  padding: 0.4rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  background: var(--color-sage);
+  color: var(--color-walnut);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+.button-sm:hover {
+  background: var(--color-dark-olive);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Hamburger menu */
+.hamburger {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 60;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: var(--color-olive);
+  margin-bottom: 6px;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.hamburger span:last-child {
+  margin-bottom: 0;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Mobile nav menu — hidden by default, shown with .active */
+#nav-menu {
+  display: none;
+}
+#nav-menu.active {
+  display: flex;
+}
+
+/* Responsive nav overlay */
+.nav-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(250,245,239,0.96);
+  z-index: 45;
+  display: none;
+}
+.nav-overlay.active {
+  display: block;
+}
+
+/* Quotation modal */
+#quote-modal.active {
+  display: flex;
+}
+
+/* Footer */
+footer {
+  font-size: 0.95rem;
+  color: #888;
+  background: transparent;
+  border-top: 1px solid var(--color-sage);
+  padding: 1.2rem 0 0.8rem 0;
+  text-align: center;
+}
+
+/* Social icons */
+.social-link {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: var(--color-olive);
+  transition: color 0.2s;
+}
+.social-link:hover {
+  color: var(--color-dark-walnut);
+}
